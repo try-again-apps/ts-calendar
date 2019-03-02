@@ -1,22 +1,30 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+import Paper from '@material-ui/core/Paper';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import './App.css';
-import Button from '@material-ui/core/Button';
+import Navbar from './Navbar';
+import Calendar from './Calendar';
+import CategoryDialog from './CategoryDialog';
 
-import logo from './logo.svg';
+const paperStyle = {
+  padding: 16
+};
 
-class App extends React.Component {
+class App extends Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button variant="contained">Test material UI</Button>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Paper elevation={16} style={paperStyle}>
+            <Route path="/:year?" component={Navbar} />
+          </Paper>
+          <Paper elevation={16} style={paperStyle}>
+            <Route path="/:year?" component={Calendar} />
+          </Paper>
+          <CategoryDialog />
+        </div>
+      </BrowserRouter>
     );
   }
 }

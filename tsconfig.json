@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "esModuleInterop": true,
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
